@@ -1,0 +1,69 @@
+public class Principal {	
+	int id;
+	String name;
+	double salary;
+	static int NumEmpleados=2; //al tratar de usar este int en el for para mostrar datos salia error Cannot make a static reference to the non-static field NumEmpleados
+    // Estan identicos pero en reclutadores todo esta en 0 o null (en el constructor falto poner this...referencia
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Developer[] dv= new Developer[3];
+		Recruiter[] Rec= new Recruiter[3];
+		    
+		dv[0]=new Developer(001, "Juan", 15000, "printers");
+		dv[1]=new Developer(002, "Magi", 9000, "Barcel");
+	    
+	    Rec[0]=new Recruiter(100, "Lisa", 18000, 1.5);
+	    Rec[1]=new Recruiter(101, "Bart", 12000, 1.3);	    
+	    
+	    
+	    
+	    System.out.println("Reclutadores");
+	    for(int i=0; i< NumEmpleados;i++)
+	    	{System.out.println("ID: " +Rec[i].id);
+	    	System.out.println("Nombre: " +Rec[i].name);
+	    	System.out.println("Salario: " +Rec[i].salary);
+	    	System.out.println("Bonus: " +Rec[i].bonus);
+	    	System.out.println();
+	    	}
+	    
+	    System.out.println("Desarrolladores");
+	    for(int i=0; i< NumEmpleados;i++)
+	    	{System.out.println("ID: " +dv[i].id);
+	    	System.out.println("Nombre: " +dv[i].name);
+	    	System.out.println("Salario: " +dv[i].salary);
+	    	System.out.println("Bonus: " +dv[i].project);
+	    	System.out.println();
+	    	}      
+	          	
+	}	
+
+}  
+
+class Developer extends Principal{
+	
+	String project;	
+
+	public Developer(int id, String name, double salary, String project) {		
+		this.id= id;
+		this.name=name;
+		this.salary=salary;
+		this.project = project;
+	}
+	public Developer() {
+		System.out.println("Constructor default dev");
+	}
+}
+
+class Recruiter extends Principal{
+	double bonus;	
+	public Recruiter(int id, String name, double salary,double bonus)
+	{
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+		this.bonus=bonus;
+	}
+	public Recruiter() {
+		System.out.println("constructor default recruiter");
+	}
+}
